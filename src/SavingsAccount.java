@@ -32,44 +32,9 @@ public class SavingsAccount extends BankAccount {
 
     @Override
     public void displayDetails() {
-        System.out.println("Savings Account Number: " + accountNumber);
         System.out.println("Savings Account Name: " + name);
+        System.out.println("Savings Account Number: " + accountNumber);
         System.out.println("Savings Balance: " + balance);
         System.out.println("Savings Interest Rate: " + interestRate);
-    }
-
-    //GETTERS
-
-    public long getSavingsAccountNumber() {
-        return getAccountNumber();
-    }
-
-    public double getSavingsBalance() {
-        return getBalance();
-    }
-
-    public double getSavingsInterestRate() {
-        return getInterestRate();
-    }
-
-    public String getSavingsName() {
-        return getName();
-    }
-
-    //SETTERS
-    public void setSavingsAccountNumber(long accountNumber) {
-        setAccountNumber(accountNumber);
-    }
-
-    public void setSavingsBalance(double balance) {
-        setBalance(balance);
-    }
-
-    public void setSavingsInterestRate(double interestRate) {
-        setInterestRate(interestRate);
-    }
-
-    public void setSavingsName(String name) {
-        setName(name);
     }
 }

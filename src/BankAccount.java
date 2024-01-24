@@ -29,33 +29,4 @@ public class BankAccount extends Account {
         balance += interest;
         System.out.println("Interest calculated. \nNew balance: " + balance + "\nInterest: " + interest);
     }
-
-    // GETTERS
-    public double getBalance() {
-        return balance;
-    }
-    public long getAccountNumber() {
-        return accountNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    // SETTERS
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    public void setAccountNumber(long accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public void setInterestRate(double interestRate) {
-        this.interestRate = interestRate;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

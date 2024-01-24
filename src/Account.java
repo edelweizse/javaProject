@@ -18,8 +18,8 @@ public abstract class Account {
     public abstract void interest(int months);
 
     public void displayDetails() {
-        System.out.println("Account Number: " + accountNumber);
         System.out.println("Account Name: " + name);
+        System.out.println("Account Number: " + accountNumber);
         System.out.println("Balance: " + balance);
         System.out.println("Interest Rate: " + interestRate);
     }
