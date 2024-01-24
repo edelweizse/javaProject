@@ -1,5 +1,4 @@
 public class SavingsAccount extends BankAccount {
-
     public SavingsAccount(long accountNumber, double balance, double interestRate, String name) {
         super(accountNumber, balance, interestRate, name);
     }
@@ -35,8 +34,8 @@ public class SavingsAccount extends BankAccount {
     public void displayDetails() {
         System.out.println("Savings Account Number: " + accountNumber);
         System.out.println("Savings Account Name: " + name);
-        System.out.println("Balance: " + balance);
-        System.out.println("Interest Rate: " + interestRate);
+        System.out.println("Savings Balance: " + balance);
+        System.out.println("Savings Interest Rate: " + interestRate);
     }
 
     //GETTERS

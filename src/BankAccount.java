@@ -1,8 +1,8 @@
-public class BankAccount extends Account{
-
-    public BankAccount(long accountNumber, double balance, double interestRate, String name){
+public class BankAccount extends Account {
+    public BankAccount(long accountNumber, double balance, double interestRate, String name) {
         super(accountNumber, balance, interestRate, name);
     }
+
     @Override
     public void deposit(double amount) {
         if (amount > 0) {
@@ -12,6 +12,7 @@ public class BankAccount extends Account{
             System.out.println("Invalid deposit amount.");
         }
     }
+
     @Override
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
@@ -21,18 +22,12 @@ public class BankAccount extends Account{
             System.out.println("Error: Invalid withdrawal amount.");
         }
     }
+
     @Override
     public void interest(int months) {
         double interest = ((balance * interestRate * 30) / 360) * months;
         balance += interest;
         System.out.println("Interest calculated. \nNew balance: " + balance + "\nInterest: " + interest);
-    }
-
-    public void displayDetails() {
-        System.out.println("Account Number: " + accountNumber);
-        System.out.println("Account Name: " + name);
-        System.out.println("Balance: " + balance);
-        System.out.println("Interest Rate: " + interestRate);
     }
 
     // GETTERS
@@ -41,14 +36,6 @@ public class BankAccount extends Account{
     }
     public long getAccountNumber() {
         return accountNumber;
-    }
-
-    public double getInterestRate() {
-        return interestRate;
-    }
-
-    public double getInterest(int months) {
-        return ((balance * interestRate * 30) / 360) * months;
     }
 
     public String getName() {

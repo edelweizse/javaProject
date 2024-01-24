@@ -9,7 +9,7 @@ public class Customer {
         this.accounts = accounts;
     }
 
-    //GETTERS
+    // GETTERS
     public String getName() {
         return name;
     }
@@ -22,70 +22,42 @@ public class Customer {
         return accounts;
     }
 
-    public BankAccount getBankAccount() {
-        if (accounts != null && accounts.length > 0 && accounts[0] instanceof BankAccount) {
-            return (BankAccount) accounts[0];
-        }
-        return null;
-    }
-
-    public double getBalance() {
-        BankAccount bankAccount = getBankAccount();
-        return (bankAccount != null) ? bankAccount.getBalance() : 0.0;
-    }
-
-    public long getAccountNumber() {
-        BankAccount bankAccount = getBankAccount();
-        return (bankAccount != null) ? bankAccount.getAccountNumber() : 0;
-    }
-
-    public double getInterestRate() {
-        BankAccount bankAccount = getBankAccount();
-        return (bankAccount != null) ? bankAccount.getInterestRate() : 0.0;
-    }
-
-    public SavingsAccount getSavingsAccount() {
-        if (accounts != null && accounts.length > 0 && accounts[1] instanceof SavingsAccount) {
-            return (SavingsAccount) accounts[1];
-        }
-        return null;
-    }
-
     public void depositToSavings(double amount) {
-        SavingsAccount savingsAccount = getSavingsAccount();
-        if (savingsAccount != null) {
-            savingsAccount.deposit(amount);
+        if (accounts != null && accounts.length > 1 && accounts[1] instanceof SavingsAccount) {
+            ((SavingsAccount) accounts[1]).deposit(amount);
         }
     }
 
     public void withdrawFromSavings(double amount) {
-        SavingsAccount savingsAccount = getSavingsAccount();
-        if (savingsAccount != null) {
-            savingsAccount.withdraw(amount);
+        if (accounts != null && accounts.length > 1 && accounts[1] instanceof SavingsAccount) {
+            ((SavingsAccount) accounts[1]).withdraw(amount);
         }
     }
 
     public void calculateInterestForSavings(int months) {
-        SavingsAccount savingsAccount = getSavingsAccount();
-        if (savingsAccount != null) {
+        if (accounts != null && accounts.length > 1 && accounts[1] instanceof SavingsAccount) {
+            SavingsAccount savingsAccount = (SavingsAccount) accounts[1];
             System.out.println("Interest for " + months + " months: " + savingsAccount.getInterest(months));
             System.out.println("Interest Rate: " + savingsAccount.getInterestRate());
         }
     }
 
     public void addInterestToSavings(int months) {
-        SavingsAccount savingsAccount = getSavingsAccount();
-        if (savingsAccount != null) {
-            savingsAccount.interest(months);
+        if (accounts != null && accounts.length > 1 && accounts[1] instanceof SavingsAccount) {
+            ((SavingsAccount) accounts[1]).interest(months);
         }
     }
 
-    //SETTERS
+    // SETTERS
     public void setName(String name) {
         this.name = name;
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public void setAccounts(Account[] accounts) {
+        this.accounts = accounts;
     }
 }
