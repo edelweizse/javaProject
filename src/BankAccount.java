@@ -1,14 +1,9 @@
-public class BankAccount {
-    private long accountNumber;
-    private double balance;
-    private double interestRate;
+public class BankAccount extends Account{
 
-    public BankAccount(long accountNumber, double balance, double interestRate) {
-        this.accountNumber = accountNumber;
-        this.balance = balance;
-        this.interestRate = interestRate;
+    public BankAccount(long accountNumber, double balance, double interestRate, String name){
+        super(accountNumber, balance, interestRate, name);
     }
-
+    @Override
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -17,7 +12,7 @@ public class BankAccount {
             System.out.println("Invalid deposit amount.");
         }
     }
-
+    @Override
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
@@ -26,11 +21,18 @@ public class BankAccount {
             System.out.println("Error: Invalid withdrawal amount.");
         }
     }
-
+    @Override
     public void interest(int months) {
         double interest = ((balance * interestRate * 30) / 360) * months;
         balance += interest;
         System.out.println("Interest calculated. \nNew balance: " + balance + "\nInterest: " + interest);
+    }
+
+    public void displayDetails() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Account Name: " + name);
+        System.out.println("Balance: " + balance);
+        System.out.println("Interest Rate: " + interestRate);
     }
 
     // GETTERS
@@ -49,6 +51,10 @@ public class BankAccount {
         return ((balance * interestRate * 30) / 360) * months;
     }
 
+    public String getName() {
+        return name;
+    }
+
     // SETTERS
     public void setBalance(double balance) {
         this.balance = balance;
@@ -60,5 +66,9 @@ public class BankAccount {
 
     public void setInterestRate(double interestRate) {
         this.interestRate = interestRate;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
